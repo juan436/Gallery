@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Imágenes</title>
+  <link rel="stylesheet" href="gallery-scripts/gallery-styles.css">
+</head>
+<body>
+  <div class="gallery-container">
+    <!-- Header mejorado -->
+    <header class="gallery-header">
+      <div class="header-content">
+        <div class="header-left">
+          <button id="back-btn" class="back-btn">
+            <span class="back-icon">←</span>
+            <span>Volver</span>
+          </button>
+        </div>
+        
+        <div class="header-center">
+          <h1 class="gallery-title">
+            <span class="title-icon">🖼️</span>
+            Galería de Imágenes
+          </h1>
+          <p class="gallery-subtitle">Gestiona y visualiza tus imágenes</p>
+        </div>
+        
+        <div class="header-right">
+          <div class="gallery-stats">
+            <span id="images-count" class="images-count">0 imágenes</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sección de filtros mejorada -->
+    <section class="filters-section">
+      <div class="filters-header">
+        <h2 class="filters-title">
+          <span class="filter-icon">🔍</span>
+          Filtros
+        </h2>
+        <span id="filter-display" class="filter-status">Todas las categorías</span>
+      </div>
+      
+      <div class="filters-container">
+        <div class="filter-group">
+          <label for="category-filter" class="filter-label">
+            <span class="label-icon">📁</span>
+            Categoría
+          </label>
+          <select id="category-filter" name="category" class="filter-select">
+            <option value="">Todas las categorías</option>
+            <option value="profile">👤 Perfil</option>
+            <option value="projects">💼 Proyectos</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería principal mejorada -->
+    <main class="gallery-main">
+      <div class="gallery-wrapper">
+        <div id="gallery-grid" class="gallery-grid">
+          <!-- Las imágenes se cargarán aquí -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Mensaje de resultado -->
+    <div id="result-message" class="result-message"></div>
+  </div>
+
+  <!-- Cargar el módulo principal con type="module" para habilitar imports/exports -->
+  <script type="module" src="gallery-scripts/index.js"></script>
+</body>
+</html>

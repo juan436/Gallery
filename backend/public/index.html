@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subida de Imágenes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Subir Imagen</h1>
+      <p>Selecciona una categoría y sube tu imagen</p>
+    </header>
+
+    <main>
+      <form id="upload-form" class="upload-form">
+        <div class="form-group">
+          <label for="category">Categoría:</label>
+          <select id="category" name="category" required>
+            <option value="">Selecciona una categoría</option>
+            <option value="profile">Perfil</option>
+            <option value="projects">Proyectos</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="image">Seleccionar imagen:</label>
+          <div class="file-input-wrapper">
+            <input type="file" id="image" name="image" accept="image/*" required />
+            <label for="image" class="file-input-label">
+              <span class="file-icon">📁</span>
+              <span class="file-text">Elegir archivo</span>
+            </label>
+          </div>
+          <div id="file-preview" class="file-preview"></div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span class="btn-text">Subir Imagen</span>
+          <span class="btn-loading">Subiendo...</span>
+        </button>
+
+        <button type="button" id="show-images" class="show-images-btn">
+          <span class="btn-icon">🖼️</span>
+          <span class="btn-text">Mostrar Imágenes</span>
+        </button>
+      </form>
+
+      <!-- Sección de ayuda sobre dimensiones de imágenes -->
+      <div class="image-guidelines">
+        <button class="guidelines-toggle" id="toggle-guidelines">
+          <span class="guidelines-icon">ℹ️</span>
+          <span class="guidelines-text">Mostrar recomendaciones de imágenes</span>
+        </button>
+        
+        <div class="guidelines-content" id="guidelines-content">
+          <div class="guideline-section">
+            <h3>
+              <span class="guideline-icon">👤</span>
+              Imagen de Perfil
+            </h3>
+            <p>Imagen principal que aparece en las secciones Hero y About</p>
+            <div class="guideline-details">
+              <h4>Recomendaciones</h4>
+              <ul>
+                <li><strong>Dimensiones:</strong> 500x500px (cuadrada)</li>
+                <li><strong>Formato:</strong> PNG o JPG (preferiblemente con fondo transparente)</li>
+                <li><strong>Tamaño de archivo:</strong> Máximo 500KB</li>
+                <li><strong>Ubicación:</strong> /images/profile/</li>
+              </ul>
+              <div class="guideline-examples">
+                <h4>Ejemplos de nombres de archivo</h4>
+                <code>perfil.jpg</code>
+                <code>juan-villegas.png</code>
+                <code>foto-profesional.jpg</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="guideline-section">
+            <h3>
+              <span class="guideline-icon">🌐</span>
+              Proyectos
+            </h3>
+            <p>Imágenes para proyectos de desarrollo</p>
+            <div class="guideline-details">
+              <h4>Recomendaciones</h4>
+              <ul>
+                <li><strong>Dimensiones:</strong> 1280x720px (16:9) o 1200x800px (3:2)</li>
+                <li><strong>Formato:</strong> JPG o PNG</li>
+                <li><strong>Tamaño de archivo:</strong> Máximo 1MB</li>
+                <li><strong>Ubicación:</strong> /images/projects/fullstack/</li>
+              </ul>
+              <div class="guideline-examples">
+                <h4>Ejemplos de nombres de archivo</h4>
+                <code>ecommerce-dashboard.jpg</code>
+                <code>plataforma-elearning.png</code>
+                <code>sistema-gestion.jpg</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="result-message" class="result-message"></div>
+
+      <!-- Modal para mostrar imágenes -->
+      <div id="images-modal" class="modal-overlay">
+        <div class="modal-container">
+          <div class="modal-header">
+            <h2 class="modal-title">
+              <span class="modal-icon">🖼️</span>
+              Galería de Imágenes
+            </h2>
+            <button id="close-modal" class="close-btn">
+              <span>✕</span>
+            </button>
+          </div>
+          
+          <div class="modal-filters">
+            <div class="filter-info">
+              <span id="filter-display">Todas las categorías</span>
+              <span id="images-count">0 imágenes</span>
+            </div>
+            <button id="refresh-gallery" class="refresh-btn">
+              <span>🔄</span>
+              Actualizar
+            </button>
+          </div>
+
+          <div class="modal-content">
+            <div id="modal-gallery" class="modal-gallery">
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
